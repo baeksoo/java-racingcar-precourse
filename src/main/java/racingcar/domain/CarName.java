@@ -8,8 +8,9 @@ public class CarName {
     }
 
     public static CarName of(String name) {
-        validateLength(name);
-        return new CarName(name);
+        String trimmed = name.trim();
+        validateLength(trimmed);
+        return new CarName(trimmed);
     }
 
     public String getName() {
