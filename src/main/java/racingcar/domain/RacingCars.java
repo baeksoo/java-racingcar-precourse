@@ -17,7 +17,7 @@ public class RacingCars {
         validateCarsCount(names);
         validateCarDuplication(names);
         List<RacingCar> racingCars = new ArrayList<>();
-        for (String name: names) {
+        for (String name : names) {
             racingCars.add(RacingCar.of(name));
         }
         return new RacingCars(racingCars);
@@ -52,8 +52,9 @@ public class RacingCars {
     }
 
     private Integer getMaxOffset(Integer maxOffset, RacingCar racingCar) {
-        if (maxOffset <= racingCar.getOffset())
+        if (maxOffset <= racingCar.getOffset()) {
             return racingCar.getOffset();
+        }
         return maxOffset;
     }
 
