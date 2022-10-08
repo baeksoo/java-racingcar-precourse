@@ -17,6 +17,11 @@ public class RacingCarController {
     public void doRacing() {
         RacingCars racingCars = getRacingCarsByUserInput();
         RacingRound racingRound = getRacingRoundByUserInput();
+        movePerRoundAndPrintCarOffset(racingCars, racingRound);
+        racingView.printRacingWinners(racingCars);
+    }
+
+    private void movePerRoundAndPrintCarOffset(RacingCars racingCars, RacingRound racingRound) {
         racingView.printPrepareRacing();
         for (int i = 0; i < racingRound.getRound(); i++) {
             racingCars.moveAll();

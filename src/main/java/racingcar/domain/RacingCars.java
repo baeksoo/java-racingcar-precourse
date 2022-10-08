@@ -1,6 +1,7 @@
 package racingcar.domain;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -30,6 +31,37 @@ public class RacingCars {
         for (RacingCar car : racingCars) {
             car.move();
         }
+    }
+
+    public String getWinnersName() {
+        Integer maxOffset = 0;
+        String winnersName = "";
+        List<RacingCar> sortedRacingCars = getSortedRacingCars();
+        for (RacingCar racingCar : sortedRacingCars) {
+            maxOffset = getMaxOffset(maxOffset, racingCar);
+            winnersName += getWinnerName(maxOffset, racingCar);
+        }
+        return winnersName.trim().replace(" ", ", ");
+    }
+
+    private List<RacingCar> getSortedRacingCars() {
+        Comparator<RacingCar> comparator = (rc1, rc2) -> rc2.getOffset() - rc1.getOffset();
+        List<RacingCar> sortedRacingCars = new ArrayList<>(racingCars);
+        sortedRacingCars.sort(comparator);
+        return sortedRacingCars;
+    }
+
+    private Integer getMaxOffset(Integer maxOffset, RacingCar racingCar) {
+        if (maxOffset <= racingCar.getOffset())
+            return racingCar.getOffset();
+        return maxOffset;
+    }
+
+    private String getWinnerName(Integer maxOffset, RacingCar racingCar) {
+        if (maxOffset.equals(racingCar.getOffset())) {
+            return " " + racingCar.getName();
+        }
+        return "";
     }
 
     private static void validateCarDuplication(List<String> names) {

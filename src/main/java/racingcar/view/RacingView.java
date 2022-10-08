@@ -1,5 +1,6 @@
 package racingcar.view;
 
+import java.util.List;
 import racingcar.domain.RacingCar;
 import racingcar.domain.RacingCars;
 
@@ -39,5 +40,9 @@ public class RacingView {
             System.out.print("-");
         }
         System.out.println();
+    }
+
+    public void printRacingWinners(RacingCars racingCars) {
+        System.out.println("최종 우승자 : " + racingCars.getWinnersName());
     }
 }
