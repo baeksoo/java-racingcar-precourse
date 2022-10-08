@@ -15,12 +15,29 @@ public class RacingCarController {
     }
 
     public void doRacing() {
-        racingView.printInputCarNames();
-        List<String> names = getNamesByUserInput();
-        RacingCars racingCars = RacingCars.of(names);
+        RacingCars racingCars = getRacingCarsByUserInput();
+        RacingRound racingRound = getRacingRoundByUserInput();
+    }
+
+    private RacingRound getRacingRoundByUserInput() {
         racingView.printInputNumberOfAttempts();
         String round = Console.readLine();
-        RacingRound racingRound = RacingRound.of(round);
+        try {
+            return RacingRound.of(round);
+        } catch (IllegalArgumentException exception) {
+            racingView.printExceptionMessage(exception);
+        }
+        return getRacingRoundByUserInput();
+    }
+
+    private RacingCars getRacingCarsByUserInput() {
+        racingView.printInputCarNames();
+        try {
+            return RacingCars.of(getNamesByUserInput());
+        } catch (IllegalArgumentException exception) {
+            racingView.printExceptionMessage(exception);
+        }
+        return getRacingCarsByUserInput();
     }
 
     private List<String> getNamesByUserInput() {

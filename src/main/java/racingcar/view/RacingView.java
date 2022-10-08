@@ -9,4 +9,8 @@ public class RacingView {
     public void printInputNumberOfAttempts() {
         System.out.println("시도할 회수는 몇회인가요?");
     }
+
+    public void printExceptionMessage(IllegalArgumentException exception) {
+        System.out.println(exception.getMessage());
+    }
 }
