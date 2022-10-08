@@ -12,6 +12,10 @@ public class CarName {
         return new CarName(name);
     }
 
+    public String getName() {
+        return name;
+    }
+
     private static void validateLength(String name) {
         if (!(name.length() >= 1 && name.length() <= 5)) {
             throw new IllegalArgumentException("[ERROR] 차량명은 1글자 이상, 5글자 이하가 되어야합니다");

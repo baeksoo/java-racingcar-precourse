@@ -1,5 +1,8 @@
 package racingcar.view;
 
+import racingcar.domain.RacingCar;
+import racingcar.domain.RacingCars;
+
 public class RacingView {
 
     public void printInputCarNames() {
@@ -12,5 +15,29 @@ public class RacingView {
 
     public void printExceptionMessage(IllegalArgumentException exception) {
         System.out.println(exception.getMessage());
+    }
+
+    public void printPrepareRacing() {
+        System.out.println();
+        System.out.println("실행 결과");
+    }
+
+    public void printRacingCarsOffset(RacingCars racingCars) {
+        for (RacingCar racingCar : racingCars.getCars()) {
+            printRacingCarNameAndOffset(racingCar);
+        }
+        System.out.println();
+    }
+
+    private void printRacingCarNameAndOffset(RacingCar racingCar) {
+        System.out.print(racingCar.getName() + " : ");
+        printRacingCarOffset(racingCar);
+    }
+
+    private void printRacingCarOffset(RacingCar racingCar) {
+        for (int i = 0; i < racingCar.getOffset(); i++) {
+            System.out.print("-");
+        }
+        System.out.println();
     }
 }

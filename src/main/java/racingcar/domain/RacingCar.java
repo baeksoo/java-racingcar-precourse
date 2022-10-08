@@ -11,8 +11,8 @@ public class RacingCar {
         this.offset = offset;
     }
 
-    public CarName getName() {
-        return name;
+    public String getName() {
+        return name.getName();
     }
 
     public static RacingCar of(String name) {

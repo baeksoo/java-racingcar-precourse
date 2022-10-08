@@ -26,6 +26,12 @@ public class RacingCars {
         return racingCars;
     }
 
+    public void moveAll() {
+        for (RacingCar car : racingCars) {
+            car.move();
+        }
+    }
+
     private static void validateCarDuplication(List<String> names) {
         Set<String> nameSet = new HashSet<>(names);
         if (names.size() != nameSet.size()) {
