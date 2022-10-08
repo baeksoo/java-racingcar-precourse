@@ -12,14 +12,14 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
-class CarsTest {
+class RacingCarsTest {
 
     @ParameterizedTest
     @MethodSource("getDuplicateNames")
     @DisplayName("차량의 이름들중 중복이 있을 경우 에러가 발생된다")
     void 차량의_이름들중_중복이_있을_경우_에러가_발생된다(List<String> carNames) {
         // when & then
-        assertThatIllegalArgumentException().isThrownBy(() -> Cars.of(carNames))
+        assertThatIllegalArgumentException().isThrownBy(() -> RacingCars.of(carNames))
                 .withMessage("[ERROR] 동일한 이름의 차량을 등록할 수 없습니다");
     }
 
@@ -28,7 +28,7 @@ class CarsTest {
     @DisplayName("차량의 이름이 1개 이하일 경우 에러가 발생된다")
     void 차량의_이름이_1개_이하일_경우_에러가_발생된다(List<String> carNames) {
         // when & then
-        assertThatIllegalArgumentException().isThrownBy(() -> Cars.of(carNames))
+        assertThatIllegalArgumentException().isThrownBy(() -> RacingCars.of(carNames))
                 .withMessage("[ERROR] 차량을 1대이하로 등록할 수 없습니다");
     }
 

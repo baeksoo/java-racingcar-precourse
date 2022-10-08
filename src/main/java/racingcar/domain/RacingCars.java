@@ -5,25 +5,25 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class Cars {
-    private final List<Car> cars;
+public class RacingCars {
+    private final List<RacingCar> racingCars;
 
-    private Cars(List<Car> cars) {
-        this.cars = cars;
+    private RacingCars(List<RacingCar> racingCars) {
+        this.racingCars = racingCars;
     }
 
-    public static Cars of(List<String> names) {
+    public static RacingCars of(List<String> names) {
         validateCarsCount(names);
         validateCarDuplication(names);
-        List<Car> cars = new ArrayList<>();
+        List<RacingCar> racingCars = new ArrayList<>();
         for (String name: names) {
-            cars.add(Car.of(name));
+            racingCars.add(RacingCar.of(name));
         }
-        return new Cars(cars);
+        return new RacingCars(racingCars);
     }
 
-    public List<Car> getCars() {
-        return cars;
+    public List<RacingCar> getCars() {
+        return racingCars;
     }
 
     private static void validateCarDuplication(List<String> names) {

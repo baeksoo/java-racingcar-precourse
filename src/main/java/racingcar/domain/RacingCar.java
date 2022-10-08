@@ -1,9 +1,9 @@
 package racingcar.domain;
 
-public class Car {
+public class RacingCar {
     private final String name;
 
-    private Car(String name) {
+    private RacingCar(String name) {
         this.name = name;
     }
 
@@ -11,9 +11,9 @@ public class Car {
         return name;
     }
 
-    public static Car of(String name) {
+    public static RacingCar of(String name) {
         validateLength(name);
-        return new Car(name);
+        return new RacingCar(name);
     }
 
     private static void validateLength(String name) {
